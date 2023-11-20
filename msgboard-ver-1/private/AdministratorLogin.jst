@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<title>Administration Login Page</title>
+<meta charset='utf-8'>
+<script>
+function validateForm(f) {
+var isValid = true;
+var username = f.username.value.trim();
+var password = f.password.value.trim();
+var usernameErrorSection = document.getElementById('usernameErrorSection');
+var passwordErrorSection = document.getElementById('passwordErrorSection');
+usernameErrorSection.innerHTML = '';
+passwordErrorSection.innerHTML = '';
+
+if(username.length == 0) {
+usernameErrorSection.innerHTML = 'Required';
+f.username.focus();
+isValid = false;
+}
+
+if(password.length == 0) {
+passwordErrorSection.innerHTML = 'Required';
+f.password.focus();
+isValid = false;
+}
+
+return isValid;
+}
+</script>
+</head>
+<body>
+<h1>Administration Module</h1>
+<h3>Setup Administrator Account</h3>
+<span style='color:red'>$$${errorMessage}</span>
+<form action='authenticateAdmin' method='POST' onsubmit='return validateForm(this)'>
+<table border='0'>
+<tr>
+<td>Username</td>
+<td>
+<input type='text' id='username' name='username' maxlength='15' size='16'/>
+<span id='usernameErrorSection' style='color:red'></span>
+</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>
+<input type='password' id='password' name='password' maxlength='15' size='16'/>
+<span id='passwordErrorSection' style='color:red'></span>
+</td>
+</tr>
+<tr>
+<td colspan='2' align='center'><button type='submit'>Login</button></td>
+</tr>
+</table> 
+</form>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+   <title>College Message Board</title>
+   <script>
+     function validateForm(frm) {
+       var isValid = true;
+       var rollNumber = frm.rollNumber.value.trim();
+       var name = frm.name.value.trim();
+       var rollNumberErrorSection = document.getElementById('rollNumberErrorSection');
+       var nameErrorSection = document.getElementById('nameErrorSection');
+       rollNumberErrorSection.innerHTML = '';
+       nameErrorSection.innerHTML = '';
+
+       if(rollNumber.length == 0) {
+         rollNumberErrorSection.innerHTML = 'Required';
+         isValid = false;
+       }
+       if(name.length == 0) {
+         nameErrorSection.innerHTML = 'Required';
+         isValid = false
+       }
+       if(rollNumber.length > 0) {
+         var e = 0;
+         var validSet = '0123456789';
+         while(e < rollNumber.length) {
+           if(validSet.indexOf(rollNumber.charAt(e)) == -1) {
+	     rollNumberErrorSection.innerHTML = 'Should be a number';
+             isValid = false;
+	     break;
+	   }
+	   e++;
+         }
+       }
+       return isValid;
+     }
+   </script>
+ </head>
+ <body>
+  <h1>Administration</h1>
+  <table width='70%' border='0'>
+    <tr>
+     <td><h3>Student (Add Module)</h3></td>
+     <td align='right'><a href='logout'>Logout</a></td>
+    </tr>
+  </table>
+  <span>$$${errorMessage}</span>
+  <form action='addStudent' method="POST" onsubmit='return validateForm(this)'>
+   <table>
+     <tr>
+       <td>Roll Number *</td>
+       <td>
+        <input type='text' name='rollNumber' id='rollNumber' maxlength='10' size='11' value='$$${rollNumber}'>
+        <span id='rollNumberErrorSection' style='color:red'></span>
+       </td>
+     </tr>
+     <tr>
+       <td>Name *</td>
+       <td>
+        <input type='text' name='name' id='name' maxlength='20' size='25' value='$$${name}'>
+        <span id='nameErrorSection' style='color:red'></span>
+       </td>
+     </tr>
+     <tr>
+       <td colspan='2' align='center'> 
+        <button type='submit'>Add</button> 
+       </td>
+     </tr>
+   </table>
+  <form>
+  <br>
+  <a href='AdminHomePage.html'>Home</a>
+
+ </body>
+</html>

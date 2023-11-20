@@ -1,0 +1,13 @@
+{
+"paths": [
+{"path":"/admin", "resource":"AdminStarter.js"},
+{"path":"/createAdmin", "resource":"CreateAdministrator.js"},
+{"path":"/authenticateAdmin", "resource":"AuthenticateAdministrator.js"},
+{"path":"/getStudents", "resource":"Student.js"},
+{"path":"/addStudent", "resource":"AddStudent.js"},
+{"path":"/editStudent", "resource":"EditStudent.js"},
+{"path":"/updateStudent", "resource":"UpdateStudent.js"},
+{"path":"/deleteStudentConfirmation", "resource":"DeleteStudentConfirmation.js"},
+{"path":"/deleteStudent", "resource":"DeleteStudent.js"}
+]
+}
